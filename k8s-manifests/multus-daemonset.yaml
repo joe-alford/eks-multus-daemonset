@@ -27,7 +27,7 @@ spec:
       serviceAccountName: multus
       containers:
       - name: kube-multus
-        image: <your repo>/eks-multus-daemonset:latest
+        image: joealford0/eks-multus-daemonset:latest
         command: ["/sbin/entrypoint.sh"]
         securityContext:
           privileged: true
