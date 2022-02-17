@@ -1,3 +1,5 @@
+For more info, including tips on design/deployment, please see: https://joealford.medium.com/deploying-multus-into-amazons-eks-42269146f421
+
 ## Design logic and container purpose
 
 In a nutshell (more detail to come, don't worry!) multus is a plugin that allows you to attach one or more extra NICs to a pod. In order for that to work, extra NIC(s) must be backed by a coresponding 'phyiscal' network on the node(s) in question. This `daemonSet` (DS) does is the link between the creation of those 'phyiscal' networks, and connecting them to an EKS node, so they're ready for use.
