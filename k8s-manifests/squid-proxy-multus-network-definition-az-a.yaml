@@ -1,0 +1,26 @@
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: squid-proxy-multus-network-definition-az-a
+  namespace: squid-proxy-multi-az
+  #note here that the `device: multus` section is important, as this is what the DS renames the interface too
+spec:
+  config: '{
+      "cniVersion": "0.3.0",
+      "plugins": [
+        {
+          "type": "host-device",
+          "device": "multus", 
+          "ipam": {
+            "type": "host-local",
+            "subnet": "10.231.4.0/29",
+            "rangeStart": "10.231.4.4",
+            "rangeEnd": "10.231.4.4",
+            "gateway": "10.231.4.1"
+          }
+        },
+        {
+          "type": "sbr"
+        }
+      ]
+    }'
